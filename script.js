@@ -64,7 +64,11 @@ mainContainer.addEventListener("click", function (event) {
     const jobSalary = parentNode.querySelector(".job-salary").innerText;
     const jobApproval = parentNode.querySelector(".job-approval").innerText;
     const jobText = parentNode.querySelector(".job-text").innerText;
-    parentNode.querySelector(".job-approval").innerText = "Interview";
+    const approvalTag = parentNode.querySelector(".job-approval");
+
+    approvalTag.innerText = "Interview";
+    approvalTag.classList.remove("btn-error");
+    approvalTag.classList.add("btn-success");
     const cartInfo = {
       jobName,
       jobNeed,
@@ -95,7 +99,11 @@ mainContainer.addEventListener("click", function (event) {
     const jobSalary = parentNode.querySelector(".job-salary").innerText;
     const jobApproval = parentNode.querySelector(".job-approval").innerText;
     const jobText = parentNode.querySelector(".job-text").innerText;
-    parentNode.querySelector(".job-approval").innerText = "Rejected";
+    const approvalTag = parentNode.querySelector(".job-approval");
+
+    approvalTag.innerText = "Rejected";
+    approvalTag.classList.remove("btn-success");
+    approvalTag.classList.add("btn-error");
     const cartInfo = {
       jobName,
       jobNeed,
