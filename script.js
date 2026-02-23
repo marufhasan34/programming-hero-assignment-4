@@ -1,5 +1,6 @@
 let InterviewList = [];
 let RejectedList = [];
+let currentStatus = "all";
 
 let total = document.getElementById("total");
 let Interview = document.getElementById("Interview");
@@ -28,22 +29,24 @@ function toggleStyle(id) {
   RejectedFilterBtn.classList.remove("btn-primary");
 
   const selected = document.getElementById(id);
+  currentStatus = id;
   selected.classList.add("btn-primary");
 
   if (id == "Interview-filter-btn") {
     allCards.classList.add("hidden");
     filteredSection.classList.remove("hidden");
+    renderInterview();
   } else if (id == "all-filter-btn") {
     allCards.classList.remove("hidden");
     filteredSection.classList.add("hidden");
-  }else if(id == 'Rejected-filter-btn'){
-     allCards.classList.add("hidden");
-     filteredSection.classList.remove("hidden");
+  } else if (id == "Rejected-filter-btn") {
+    allCards.classList.add("hidden");
+    filteredSection.classList.remove("hidden");
+    renderRejected();
   }
 }
 
 mainContainer.addEventListener("click", function (event) {
-
   if (event.target.classList.contains("interview-btn")) {
     const parentNode = event.target.parentNode.parentNode;
     const jobName = parentNode.querySelector(".job-name").innerText;
@@ -56,7 +59,7 @@ mainContainer.addEventListener("click", function (event) {
       jobName,
       jobNeed,
       jobSalary,
-      jobApproval: 'Interview',
+      jobApproval: "Interview",
       jobText,
     };
     const jobExist = InterviewList.find(
@@ -65,9 +68,14 @@ mainContainer.addEventListener("click", function (event) {
     if (!jobExist) {
       InterviewList.push(cartInfo);
     }
+    RejectedList = RejectedList.filter(
+      (item) => item.jobName != cartInfo.jobName,
+    );
     calculateCount();
-    renderInterview();
-  }else if (event.target.classList.contains("rejected-btn")) {
+    if (currentStatus == "Rejected-filter-btn") {
+      renderRejected();
+    }
+  } else if (event.target.classList.contains("rejected-btn")) {
     const parentNode = event.target.parentNode.parentNode;
     const jobName = parentNode.querySelector(".job-name").innerText;
     const jobNeed = parentNode.querySelector(".job-need").innerText;
@@ -79,7 +87,7 @@ mainContainer.addEventListener("click", function (event) {
       jobName,
       jobNeed,
       jobSalary,
-      jobApproval: 'rejected',
+      jobApproval: "rejected",
       jobText,
     };
     const jobExist = RejectedList.find(
@@ -88,14 +96,26 @@ mainContainer.addEventListener("click", function (event) {
     if (!jobExist) {
       RejectedList.push(cartInfo);
     }
-    RejectedList = RejectedList.filter(item => item.jobName != cartInfo.jobName)
+
+    InterviewList = InterviewList.filter(
+      (item) => item.jobName != cartInfo.jobName,
+    );
+
+    if (currentStatus == "Interview-filter-btn") {
+      renderInterview();
+    }
     calculateCount();
-    renderRejected();
   }
 });
 
 function renderInterview() {
   filteredSection.innerHTML = "";
+  if(InterviewList.length === 0 ){
+    filteredSection.innerHTML = `
+     
+    `
+  }
+
   for (let Interview of InterviewList) {
     console.log(Interview);
     let div = document.createElement("div");
@@ -112,10 +132,10 @@ function renderInterview() {
               ${Interview.jobText}
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button class="btn interview-btn btn-outline uppercase btn-success">
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -129,7 +149,6 @@ function renderInterview() {
     filteredSection.appendChild(div);
   }
 }
-
 
 function renderRejected() {
   filteredSection.innerHTML = "";
@@ -148,10 +167,10 @@ function renderRejected() {
               ${rejected.jobText}
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button class="btn interview-btn btn-outline uppercase btn-success">
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
