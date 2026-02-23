@@ -33,6 +33,13 @@
       * {
         font-family: "Geist", sans-serif;
       }
+      .approved {
+        color: green;
+        font-weight: bold;
+        background-color: #fef9c3;
+        padding: 4px 8px;
+        border-radius: 6px;
+      }
     </style>
   </head>
   <body>
@@ -40,7 +47,7 @@
       <h1 class="font-bold text-3xl mt-14 mb-5">Job Application Tracker</h1>
       <div class="grid grid-cols-3 gap-6">
         <div class="p-5 shadow-xl rounded-xl space-y-2">
-          <p  class="font-medium">total</p>
+          <p class="font-medium">total</p>
           <p id="total" class="font-bold text-2xl">0</p>
         </div>
         <div class="p-5 shadow-xl rounded-xl space-y-2">
@@ -57,34 +64,62 @@
     <main class="w-[80%] mx-auto">
       <div class="flex justify-between">
         <h4 class="font-semibold text-xl">Available Jobs</h4>
-        <p class="font-medium text-[16px] text-gray-500"><span id="jobs-count">0</span> jobs</p>
+        <p class="font-medium text-[16px] text-gray-500">
+          <span id="jobs-count">0</span> jobs
+        </p>
       </div>
       <!-- buttons -->
       <div class="mt-6 mb-6 flex gap-4">
-        <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="btn btn-primary">All</button>
-        <button onclick="toggleStyle('Interview-filter-btn')" id="Interview-filter-btn" class="btn">Interview</button>
-        <button onclick="toggleStyle('Rejected-filter-btn')" id="Rejected-filter-btn" class="btn">Rejected</button>
+        <button
+          onclick="toggleStyle('all-filter-btn')"
+          id="all-filter-btn"
+          class="btn btn-primary"
+        >
+          All
+        </button>
+        <button
+          onclick="toggleStyle('Interview-filter-btn')"
+          id="Interview-filter-btn"
+          class="btn"
+        >
+          Interview
+        </button>
+        <button
+          onclick="toggleStyle('Rejected-filter-btn')"
+          id="Rejected-filter-btn"
+          class="btn"
+        >
+          Rejected
+        </button>
       </div>
       <!-- buttons -->
+      <!-- filtered card -->
+      <section id="filtered-section" class="hidden"></section>
+      <!-- filtered card -->
+
       <section id="allCards" class="space-y-12">
         <!-- card 1 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold job-name text-xl">Mobile First Corp</h3>
+            <p class="font-normal job-need text-gray-600">
+              React Native Developer
+            </p>
+            <p class="font-normal job-salary text-gray-400">
               Remote • Full-time • $130,000 - $175,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Build cross-platform mobile applications using React Native. Work
               on products used by millions of users worldwide.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -100,21 +135,25 @@
         <!-- card 2 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">WebFlow Agency</h3>
-            <p class="font-normal text-gray-600">Web Designer & Developer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold text-xl job-name">WebFlow Agency</h3>
+            <p class="font-normal text-gray-600 job-need">
+              Web Designer & Developer
+            </p>
+            <p class="font-normal text-gray-400 job-salary">
               Los Angeles, CA • Part-time • $80,000 - $120,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Create stunning web experiences for high-profile clients. Must
               have portfolio and experience with modern web design trends.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -130,23 +169,25 @@
         <!-- card 3 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">DataViz Solutions</h3>
-            <p class="font-normal text-gray-600">
+            <h3 class="font-semibold text-xl job-name">DataViz Solutions</h3>
+            <p class="font-normal text-gray-600 job-need">
               Data Visualization Specialist
             </p>
-            <p class="font-normal text-gray-400">
+            <p class="font-normal text-gray-400 job-salary">
               Boston, MA • Full-time • $125,000 - $165,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Transform complex data into compelling visualizations. Required
               skills: D3.js, React, and strong analytical thinking.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -162,21 +203,23 @@
         <!-- card 4 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">CloudFirst Inc</h3>
-            <p class="font-normal text-gray-600">Backend Developer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold text-xl job-name">CloudFirst Inc</h3>
+            <p class="font-normal text-gray-600 job-need">Backend Developer</p>
+            <p class="font-normal text-gray-400 job-salary">
               Seattle, WA • Full-time • $140,000 - $190,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Design and maintain scalable backend systems using Python and AWS.
               Work with modern DevOps practices and cloud infrastructure.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -192,22 +235,24 @@
         <!-- card 5 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Innovation Labs</h3>
-            <p class="font-normal text-gray-600">UI/UX Engineer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold text-xl job-name">Innovation Labs</h3>
+            <p class="font-normal text-gray-600 job-need">UI/UX Engineer</p>
+            <p class="font-normal text-gray-400 job-salary">
               Austin, TX • Full-time • $110,000 - $150,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Create beautiful and functional user interfaces for our suite of
               products. Strong design skills and frontend development expertise
               required.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -223,22 +268,26 @@
         <!-- card 6 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">MegaCorp Solutions</h3>
-            <p class="font-normal text-gray-600">JavaScript Developer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold text-xl job-name">MegaCorp Solutions</h3>
+            <p class="font-normal text-gray-600 job-need">
+              JavaScript Developer
+            </p>
+            <p class="font-normal text-gray-400 job-salary">
               New York, NY • Full-time • $130,000 - $170,00
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Build enterprise applications with JavaScript and modern
               frameworks. We offer competitive compensation, health insurance,
               and professional development opportunities.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -254,22 +303,26 @@
         <!-- card 7 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">StartupXYZ</h3>
-            <p class="font-normal text-gray-600">Full Stack Engineer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold text-xl job-name">StartupXYZ</h3>
+            <p class="font-normal text-gray-600 job-need">
+              Full Stack Engineer
+            </p>
+            <p class="font-normal text-gray-400 job-salary">
               Remote • Full-time • $120,000 - $160,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               Join our fast-growing startup and work on our core platform.
               Experience with Node.js and React required. Great benefits and
               equity package included.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
@@ -285,22 +338,26 @@
         <!-- card 8 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">TechCorp Industries</h3>
-            <p class="font-normal text-gray-600">Senior Frontend Developer</p>
-            <p class="font-normal text-gray-400">
+            <h3 class="font-semibold text-xl job-name">TechCorp Industries</h3>
+            <p class="font-normal text-gray-600 job-need">
+              Senior Frontend Developer
+            </p>
+            <p class="font-normal text-gray-400 job-salary">
               San Francisco, CA • Full-time • $130,000 - $175,000
             </p>
-            <p class="font-medium btn uppercase">Not Applied</p>
-            <p>
+            <p class="font-medium btn uppercase job-approval">Not Applied</p>
+            <p class="job-text">
               We are looking for an experienced Frontend Developer to build
               scalable web applications using React and TypeScript. You will
               work with a talented team on cutting-edge projects.
             </p>
             <div class="flex gap-3">
-              <button class="btn btn-outline uppercase btn-success">
+              <button
+                class="btn interview-btn btn-outline uppercase btn-success"
+              >
                 Interview
               </button>
-              <button class="btn btn-outline uppercase btn-error">
+              <button class="btn rejected-btn btn-outline uppercase btn-error">
                 Rejected
               </button>
             </div>
