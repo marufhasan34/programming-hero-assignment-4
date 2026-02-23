@@ -40,16 +40,16 @@
       <h1 class="font-bold text-3xl mt-14 mb-5">Job Application Tracker</h1>
       <div class="grid grid-cols-3 gap-6">
         <div class="p-5 shadow-xl rounded-xl space-y-2">
-          <p class="font-medium">total</p>
-          <p class="font-bold text-2xl">0</p>
+          <p  class="font-medium">total</p>
+          <p id="total" class="font-bold text-2xl">0</p>
         </div>
         <div class="p-5 shadow-xl rounded-xl space-y-2">
           <p class="font-medium">Interview</p>
-          <p class="font-bold text-2xl text-green-600">0</p>
+          <p id="Interview" class="font-bold text-2xl text-green-600">0</p>
         </div>
         <div class="p-5 shadow-xl rounded-xl space-y-2">
           <p class="font-medium">Rejected</p>
-          <p class="font-bold text-2xl text-red-600">0</p>
+          <p id="Rejected" class="font-bold text-2xl text-red-600">0</p>
         </div>
       </div>
     </header>
@@ -57,7 +57,7 @@
     <main class="w-[80%] mx-auto">
       <div class="flex justify-between">
         <h4 class="font-semibold text-xl">Available Jobs</h4>
-        <p class="font-medium text-[16px] text-gray-500">o jobs</p>
+        <p class="font-medium text-[16px] text-gray-500"><span id="jobs-count">0</span> jobs</p>
       </div>
       <!-- buttons -->
       <div class="mt-6 mb-6 flex gap-4">
@@ -66,7 +66,7 @@
         <button class="btn">Rejected</button>
       </div>
       <!-- buttons -->
-      <section class="space-y-12">
+      <section id="allCards" class="space-y-12">
         <!-- card 1 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
@@ -91,25 +91,24 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 1 -->
 
-        
         <!-- card 2 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">WebFlow Agency</h3>
+            <p class="font-normal text-gray-600">Web Designer & Developer</p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              Los Angeles, CA • Part-time • $80,000 - $120,000
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Create stunning web experiences for high-profile clients. Must
+              have portfolio and experience with modern web design trends.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -122,25 +121,26 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 2 -->
-
 
         <!-- card 3 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">DataViz Solutions</h3>
+            <p class="font-normal text-gray-600">
+              Data Visualization Specialist
+            </p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              Boston, MA • Full-time • $125,000 - $165,000
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Transform complex data into compelling visualizations. Required
+              skills: D3.js, React, and strong analytical thinking.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -153,25 +153,24 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 3 -->
 
-
         <!-- card 4 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">CloudFirst Inc</h3>
+            <p class="font-normal text-gray-600">Backend Developer</p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              Seattle, WA • Full-time • $140,000 - $190,000
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Design and maintain scalable backend systems using Python and AWS.
+              Work with modern DevOps practices and cloud infrastructure.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -184,25 +183,25 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 4 -->
-
 
         <!-- card 5 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">Innovation Labs</h3>
+            <p class="font-normal text-gray-600">UI/UX Engineer</p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              Austin, TX • Full-time • $110,000 - $150,000
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Create beautiful and functional user interfaces for our suite of
+              products. Strong design skills and frontend development expertise
+              required.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -215,25 +214,25 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 5 -->
 
-
         <!-- card 6 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">MegaCorp Solutions</h3>
+            <p class="font-normal text-gray-600">JavaScript Developer</p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              New York, NY • Full-time • $130,000 - $170,00
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Build enterprise applications with JavaScript and modern
+              frameworks. We offer competitive compensation, health insurance,
+              and professional development opportunities.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -246,25 +245,25 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 6 -->
 
-
         <!-- card 7 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">StartupXYZ</h3>
+            <p class="font-normal text-gray-600">Full Stack Engineer</p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              Remote • Full-time • $120,000 - $160,000
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              Join our fast-growing startup and work on our core platform.
+              Experience with Node.js and React required. Great benefits and
+              equity package included.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -277,25 +276,25 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 7 -->
-
 
         <!-- card 8 -->
         <div class="flex justify-between shadow-2xl p-10 rounded-xl">
           <div class="space-y-5">
-            <h3 class="font-semibold text-xl">Mobile First Corp</h3>
-            <p class="font-normal text-gray-600">React Native Developer</p>
+            <h3 class="font-semibold text-xl">TechCorp Industries</h3>
+            <p class="font-normal text-gray-600">Senior Frontend Developer</p>
             <p class="font-normal text-gray-400">
-              Remote • Full-time • $130,000 - $175,000
+              San Francisco, CA • Full-time • $130,000 - $175,000
             </p>
             <p class="font-medium btn uppercase">Not Applied</p>
             <p>
-              Build cross-platform mobile applications using React Native. Work
-              on products used by millions of users worldwide.
+              We are looking for an experienced Frontend Developer to build
+              scalable web applications using React and TypeScript. You will
+              work with a talented team on cutting-edge projects.
             </p>
             <div class="flex gap-3">
               <button class="btn btn-outline uppercase btn-success">
@@ -308,12 +307,14 @@
           </div>
           <div>
             <div class="border rounded-full p-2 border-gray-300">
-                <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can"></i>
             </div>
           </div>
         </div>
         <!-- card 8 -->
       </section>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>
